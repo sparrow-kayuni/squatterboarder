@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <meta http-equiv="CONTENT-TYPE" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles/style.css"/>
+  <link rel="stylesheet" href="lib/bootstrap-5.3.2-dist/css/bootstrap.min.css">
+  <title>SquatterBoarder Test</title>
+  <style>
+    .app-container{
+      backgound-color: yellow;
+      padding: 10px;
+    }
+  
+  #chat__container{
+    border: solid 1px grey;
+    border-radius: 3px;
+    background-color: whitesmoke;
+    height: 300px;
+    overflow-y: scroll;
+    position: relative;
+  }
+  
+  #form__container{
+    
+  }
+  
+  .message-input-group{
+    align-items: center;
+    padding-top: 5px;
+  }
+  
+  #message_input{
+    width: 100%;
+  }
+  
+  .input-group-append{
+    justify-content: right !important;
+    
+  }
+  
+  .user-message-element{
+    background-color: green;
+    border-radius: 2px;
+    text-align: left;
+    min-width: 20px;
+    max-width: 115ch;
+  }
+  
+  .response-message-element{
+    background-color: grey;
+    border-radius: 2px;
+    text-align: right;
+    max-width: 115ch;
+  }
+  
+  body{
+    margin: 0;
+  }
+  
+  #send__button{
+    background-color: lightblue;
+    border: solid 1px grey;
+  }
+  
+  #navmenu__button{
+    background-color: #888;
+    border: solid 1px #222;
+    z-index: 10;
+  }
+  
+  .dropdown-container{
+    position: absolute;
+    top: 45px;
+    left: 0px;
+    z-index: 0;
+    display: block;
+    width: 100vw;
+    overflow-y: hidden;
+    background-color: #567;
+    transition: height ease-out 500ms;
+  }
+  
+  .no-height{
+    height: 0px !important;
+  }
+  
+  .dropdown-height{
+    height: 110vw !important;
+  }
+  
+  .navbar{
+    background-color: #3489ed;
+  }
+  
+  .nav-link{
+    color: white;
+    text-decoration: none;
+    background-color: transparent;
+  }
+  
+  .nav-link:active{
+    background-color: #555;
+  }
+  
+  .menu-box{
+    list-style: none;
+    flex-direction: column;
+    justify-content: space-around;
+  }
+  
+  
+  .nav-inner-container{
+    position: relative;
+    z-index: 99;
+    background-color: #3489ed;
+  }
+  
+  </style>
+  
+</head>
+<body>
+  <div id="app">
+    <nav class="navbar">
+      <div class="container">
+        <div class="row nav-inner-container">
+          <div class="col-4">
+            <button class="btn" id="navmenu__button" onclick="toggleDropdownMenu(event)">Menu
+            </button>
+            <div class="dropdown-container no-height">
+              <ul class="menu-box p-3 d-flex">
+                <li class="dropdown-menu-item"><a href="" class="btn nav-link p-2">Squatter Chat</a></li>
+                <li class="dropdown-menu-item"><a href="" class="btn nav-link p-2">Agent Chat</a></li>
+                <li class="dropdown-menu-item"><a href="" class="btn nav-link p-2">Post a space</a></li>
+              </ul>
+                
+              </div>
+          </div>
+          
+        </div>
+      </div> 
+    </nav>
+    <div class="app-container container">
+      <div>
+        <h1>Squatter Chat</h1>
+        <span class="d-inline-block">
+          <button class="btn btn-danger" onclick="deleteChat()">Delete chat</button>
+        </span>
+      </div>
+      
+      <div id="chat__container">
+        
+      </div>
+      
+      <div class="input-group message-input-group">
+          <input class="form-control" type="text" id="message__input">
+        <div class="input-group-append d-flex pt-2">
+          <button class="btn h-100" type="button" id="send__button" onclick="sendHandler(event)">Send</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="lib/jquery-3.1.7/jquery.min.js"></script>
+  <script src="lib/bootstrap-5.3.2-dist/js/bootstrap.min.js"></script>
+  
+  <script src="scripts/main.js"></script>
+</body>
+</html>
